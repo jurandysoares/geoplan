@@ -58,3 +58,7 @@ Você pode ler um bom material sobre polígonos em: \<<https://www.todamateria.c
 ## Referências
 
 - [Retas](http://objetoseducacionais2.mec.gov.br/bitstream/handle/mec/10396/geo0101.htm)
+- [Geometria plana](https://www.todamateria.com.br/geometria-plana/)
+- [Polígonos](https://www.todamateria.com.br/poligonos/)
+- [Quadriláteros](https://www.todamateria.com.br/quadrilateros/)
+- [turtle -- Gráficos Turtle](https://docs.python.org/pt-br/3/library/turtle.html)
