@@ -2,14 +2,20 @@
 Geometria plana
 """
 
-# %%
 import turtle
 from typing import List
 
+
 class Ponto2D:
-    """Ponto da geometria plana, com abscissa (x) e ordenada (y).
-    """
-    def __init__(self, x: float, y: float, des_coords: bool=True, pos_coords: str='abaixo') -> None:
+    """Ponto da geometria plana, com abscissa (x) e ordenada (y)."""
+
+    def __init__(
+        self, 
+        x: float, 
+        y: float, 
+        des_coords: bool = True, 
+        pos_coords: str = "abaixo"
+    ) -> None:
         """Ponto da geometria plana.
 
         Args:
@@ -20,28 +26,27 @@ class Ponto2D:
         """
         self._x = x
         self._y = y
-        pincel = turtle.Pen(shape='circle', visible=False)
-        self._pincel = pincel 
+        pincel = turtle.Pen(shape="circle", visible=False)
+        self._pincel = pincel
 
-        pincel.speed('fastest')
+        pincel.speed("fastest")
         pincel.hideturtle()
         pincel.up()
 
         if des_coords:
-            if pos_coords == 'abaixo':
-                pincel.setpos(x, y-20)
-            elif pos_coords == 'acima':
-                pincel.setpos(x, y+5)
-            elif pos_coords == 'direita':
-                pincel.setpos(x+25, y-6)
-            elif pos_coords == 'esquerda':
-                pincel.setpos(x-25, y-6)
+            if pos_coords == "abaixo":
+                pincel.setpos(x, y - 20)
+            elif pos_coords == "acima":
+                pincel.setpos(x, y + 5)
+            elif pos_coords == "direita":
+                pincel.setpos(x + 25, y - 6)
+            elif pos_coords == "esquerda":
+                pincel.setpos(x - 25, y - 6)
 
-            pincel.write(f'({x}, {y})', align='center')
-        
+            pincel.write(f"({x}, {y})", align="center")
 
         # Desenha um pequeno círculo para representar o ponto
-        pincel.setpos(x, y-2)
+        pincel.setpos(x, y - 2)
         pincel.down()
         pincel.begin_fill()
         pincel.circle(2)
@@ -51,13 +56,13 @@ class Ponto2D:
     @property
     def x(self) -> float:
         return self._x
-    
+
     @property
     def y(self) -> float:
         return self._y
 
     def __repr__(self) -> str:
-        return f'Ponto2D: (x={self._x}, y={self._y})'
+        return f"Ponto2D: (x={self._x}, y={self._y})"
 
     def desenhar_linha_para(self, outro_ponto):
         """Desenha uma linha entre este ponto e outro ponto.
@@ -65,16 +70,20 @@ class Ponto2D:
         Args:
             outro_ponto (Ponto2D): O outro ponto.
         """
-        
+
         self._pincel.down()
         self._pincel.goto(outro_ponto.x, outro_ponto.y)
         self._pincel.goto(self.x, self.y)
 
 
 class SegmentoDeReta2D:
-    """Segmento de reta em duas dimensões.
-    """
-    def __init__(self, ponto1: Ponto2D, ponto2: Ponto2D) -> None:
+    """Segmento de reta em duas dimensões."""
+
+    def __init__(
+        self, 
+        ponto1: Ponto2D, 
+        ponto2: Ponto2D
+    ) -> None:
         """Segmento de reta em duas dimensões.
 
         Args:
@@ -88,18 +97,17 @@ class SegmentoDeReta2D:
     @property
     def ponto1(self):
         return self._ponto1
-    
+
     @property
     def ponto2(self):
         return self._ponto2
 
     def __repr__(self) -> str:
-        return f'SegmentoDeReta2D: (ponto1={self._ponto1}; ponto2={self._ponto2})'
+        return f"SegmentoDeReta2D: (ponto1={self._ponto1}; ponto2={self._ponto2})"
 
 
 class Poligono2D:
-    """Polígono em duas dimensões
-    """
+    """Polígono em duas dimensões"""
 
     def __init__(self, *pontos: List[Ponto2D]) -> None:
         """Polígono em duas dimensões.
@@ -112,13 +120,12 @@ class Poligono2D:
         self._vertices = tuple(pontos)
         self._arestas = self._gerar_arestas()
 
-
     def _gerar_arestas(self):
         vertices = self._vertices
         qt_vertices = len(vertices)
         arestas = []
-        for i,vt in enumerate(vertices):
-            arestas.append(SegmentoDeReta2D(vt, vertices[(i+1)%qt_vertices]))
+        for i, vt in enumerate(vertices):
+            arestas.append(SegmentoDeReta2D(vt, vertices[(i + 1) % qt_vertices]))
 
 
 tela = turtle.Screen()

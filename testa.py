@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from geoplan import Ponto2D, SegmentoDeReta2D, tela, altura, largura, Poligono2D
 
 def testa_segmento():
@@ -26,3 +28,4 @@ def testa_poligono():
     pol_2 = Poligono2D(pt_5, pt_6, pt_7)
 
     tela.exitonclick()
+testa_poligono()
