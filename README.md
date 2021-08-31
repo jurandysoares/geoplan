@@ -51,7 +51,7 @@ Conceitos  derivados dos primitivos:
 
 ## Tela do computador e a Geometria Euclidiana
 
-A tela de um computador ou uma janela de aplicação geralmente são representadas como um retãngulo, que é um polígono equiângulo com ângulo interno de 90º.
+A tela de um computador ou uma janela de aplicação geralmente são representadas como um retângulo, que é um polígono equiângulo com ângulo interno de 90º.
 
 Você pode ler um bom material sobre polígonos em: \<<https://www.todamateria.com.br/poligonos/>\>
 
